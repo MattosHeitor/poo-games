@@ -12,5 +12,7 @@ class Guerreiro(Personagem):
         )
 
     def atacar(self, alvo):
-        # TODO: implementar ataque do guerreiro
-        pass
+        """Golpe físico: causa dano igual ao ataque, reduzido pela defesa do alvo."""
+        dano = alvo.receber_dano(self.ataque)
+        print(f"{self.nome} atacou {alvo.nome} e causou {dano} de dano!")
+        return dano
