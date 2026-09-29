@@ -126,3 +126,39 @@ def test_adicionar_item_ao_inventario():
 
     assert len(guerreiro.inventario) == 1
 
+# ---------- Testes da Fúria da Noite ----------
+
+def test_furia_da_noite_esta_viva():
+    furia = Inimigo("Fúria da Noite", vida=200, ataque=45, defesa=15)
+
+    assert furia.esta_vivo() is True
+
+
+def test_furia_da_noite_recebe_dano():
+    furia = Inimigo("Fúria da Noite", vida=200, ataque=45, defesa=15)
+
+    dano = furia.receber_dano(25)
+
+    assert dano == 10
+    assert furia.vida == 190
+
+
+def test_furia_da_noite_ataca():
+    furia = Inimigo("Fúria da Noite", vida=200, ataque=45, defesa=15)
+    guerreiro = Guerreiro("Arthur")
+
+    dano = furia.atacar(guerreiro)
+
+    assert dano == 30
+    assert guerreiro.vida == 90
+
+
+def test_furia_da_noite_morre():
+    furia = Inimigo("Fúria da Noite", vida=200, ataque=45, defesa=15)
+
+    furia.receber_dano(250)
+
+    assert furia.vida == 0
+    assert furia.esta_vivo() is False
+
+
