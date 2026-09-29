@@ -3,6 +3,7 @@ from mago import Mago
 from inimigo import Inimigo
 from item import Item, PocaoMana
 from batalha import Batalha
+from novo inimigo import novo_inimigo
 
 # Catálogo de inimigos: opção -> (nome, vida, ataque, defesa, dificuldade)
 INIMIGOS = {
