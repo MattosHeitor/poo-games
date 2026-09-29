@@ -125,3 +125,14 @@ def test_adicionar_item_ao_inventario():
     guerreiro.adicionar_item("qualquer-item")
 
     assert len(guerreiro.inventario) == 1
+
+# ---------- Issue #6: ataque do Novo Inimigo ----------
+
+def test_inimigo_ataca():
+    goblin = Inimigo("Fúria da Noite", vida=300, ataque=25, defesa=10)
+    guerreiro = Guerreiro("Arthur")  # defesa 20
+
+    goblin.atacar(guerreiro)
+
+    assert guerreiro.vida == 200  # 25 - 20 = 5
+
