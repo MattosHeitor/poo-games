@@ -12,5 +12,7 @@ class Inimigo(Personagem):
         )
 
     def atacar(self, alvo):
-        # TODO: implementar ataque
-        pass
+        """Ataque básico: causa dano igual ao ataque, reduzido pela defesa do alvo."""
+        dano = alvo.receber_dano(self.ataque)
+        print(f"{self.nome} atacou {alvo.nome} e causou {dano} de dano!")
+        return dano
